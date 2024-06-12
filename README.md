@@ -1,26 +1,26 @@
-### ！！必须先安装[MP4Box](https://gpac.io/downloads/gpac-nightly-builds/)，并确认[MP4Box](https://gpac.io/downloads/gpac-nightly-builds/)已正确添加到环境变量
+### !! You must first install [MP4Box](https://gpac.io/downloads/gpac-nightly-builds/), and ensure [MP4Box](https://gpac.io/downloads/gpac-nightly-builds/) is correctly added to the environment variables
 
-### 添加功能
-1. 调用外部MP4Box自动封装ec3为m4a
-2. 更改目录结构为 歌手名\专辑名  ;Atmos下载文件则另外移动到AM-DL-Atmos downloads，并更改目录结构为 歌手名\专辑名 [Atmos]
-3. 运行结束后显示总体完成情况
-4. 自动内嵌封面和LRC歌词（需要media-user-token，获取方式看最后的说明）
-5. 自动构建 可以到 [Actions](https://github.com/zhaarey/apple-music-alac-atmos-downloader/actions) 页面下载最新自动构建版本 可以直接`main.exe url`
-6. main_select 支持手动填写m3u8，输入#号，比如#1 #2，支持txt读取m3u8，输入txt文件名
-7. main 支持使用 go run main.go "txt文件地址"   txt文件名需要指定格式  例如  cn_1707581102_THE BOOK 3.txt     建议使用这个[Reqable 脚本代码](https://telegra.ph/Reqable-For-Apple-Music-05-01) 自动生成
-8. main 支持check 可以填入文本地址 或API数据库.
-9. 新增get-m3u8-from-device 改为true 且设置端口`adb forward tcp:20020 tcp:20020`即从模拟器获取m3u8 
-10. 文件夹和文件支持模板
-11. 支持下载歌手 `go run main.go https://music.apple.com/us/artist/taylor-swift/159260351`
+### Features Added
+1. Automatically package EC3 as M4A using an external MP4Box
+2. Change the directory structure to `Artist Name\Album Name`; Atmos download files are moved to `AM-DL-Atmos downloads`, with the directory structure `Artist Name\Album Name [Atmos]`
+3. Display overall completion status after the run
+4. Automatically embed cover art and LRC lyrics (requires media-user-token, see the instructions at the end for how to obtain it)
+5. Automatic builds: You can download the latest automatic build version from the [Actions](https://github.com/zhaarey/apple-music-alac-atmos-downloader/actions) page, and use `main.exe url` directly
+6. `main_select` supports manually entering M3U8, using `#` for input, e.g., `#1 #2`. It also supports reading M3U8 from a TXT file by entering the TXT filename
+7. `main` supports using `go run main.go "txt file address"`. The TXT filename needs a specific format, e.g., `cn_1707581102_THE BOOK 3.txt`. It is recommended to use this [Reqable script code](https://telegra.ph/Reqable-For-Apple-Music-05-01) to auto-generate
+8. `main` supports `check`, where you can input a text address or an API database
+9. Added `get-m3u8-from-device` option: Set to `true` and set the port with `adb forward tcp:20020 tcp:20020` to get M3U8 from an emulator
+10. Supports folder and file templates
+11. Supports downloading artists: `go run main.go https://music.apple.com/us/artist/taylor-swift/159260351`
 
-本项目仅支持ALAC和Atmos
+### This project only supports ALAC and Atmos
 - `alac (audio-alac-stereo)`
 - `ec3 (audio-atmos / audio-ec3)`
 
-### Python项目
-如需下载AAC推荐使用WorldObservationLog的[AppleMusicDecrypt](https://github.com/WorldObservationLog/AppleMusicDecrypt)
+### Python Project
+For AAC downloads, it is recommended to use WorldObservationLog’s [AppleMusicDecrypt](https://github.com/WorldObservationLog/AppleMusicDecrypt)
 
-[AppleMusicDecrypt](https://github.com/WorldObservationLog/AppleMusicDecrypt)支持以下编码
+[AppleMusicDecrypt](https://github.com/WorldObservationLog/AppleMusicDecrypt) supports the following encodings
 - `alac (audio-alac-stereo)`
 - `ec3 (audio-atmos / audio-ec3)`
 - `ac3 (audio-ac3)`
@@ -45,7 +45,7 @@ Original script by Sorrow. Modified by me to include some fixes and improvements
 9. Start downloading some playlists: `go run main.go https://music.apple.com/us/playlist/taylor-swift-essentials/pl.3950454ced8c45a3b0cc693c2a7db97b` or `go run main.go https://music.apple.com/us/playlist/hi-res-lossless-24-bit-192khz/pl.u-MDAWvpjt38370N`.
 10. For dolby atmos: `go run main_atmos.go https://music.apple.com/us/album/1989-taylors-version-deluxe/1713845538`.
 
-[中文教程-详见方法三](https://telegra.ph/Apple-Music-Alac高解析度无损音乐下载教程-04-02-2)
+[Chinese Tutorial - See Method 3](https://telegra.ph/Apple-Music-Alac高解析度无损音乐下载教程-04-02-2)
 
 ## Downloading lyrics
 1. Open [Apple Music](https://music.apple.com) and log in
