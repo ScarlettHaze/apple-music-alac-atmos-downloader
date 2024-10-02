@@ -1,27 +1,27 @@
-### ！！必须先安装[MP4Box](https://gpac.io/downloads/gpac-nightly-builds/)，并确认[MP4Box](https://gpac.io/downloads/gpac-nightly-builds/)已正确添加到环境变量
+### !! You must first install [MP4Box](https://gpac.io/downloads/gpac-nightly-builds/), and ensure that [MP4Box](https://gpac.io/downloads/gpac-nightly-builds/) is correctly added to the environment variables.
 
-### 添加功能
-1. 调用外部MP4Box自动封装ec3为m4a
-2. 更改目录结构为 歌手名\专辑名  ;Atmos下载文件则另外移动到AM-DL-Atmos downloads，并更改目录结构为 歌手名\专辑名 [Atmos]
-3. 运行结束后显示总体完成情况
-4. 自动内嵌封面和LRC歌词（需要media-user-token，获取方式看最后的说明）
-5. 自动构建 可以到 [Actions](https://github.com/zhaarey/apple-music-alac-atmos-downloader/actions) 页面下载最新自动构建版本 可以直接`main.exe url`
-6. main 支持check 可以填入文本地址 或API数据库.
-7. 新增get-m3u8-from-device 改为true 且设置端口`adb forward tcp:20020 tcp:20020`即从模拟器获取m3u8 
-8. 文件夹和文件支持模板
-9. 支持下载歌手 `go run main.go https://music.apple.com/us/artist/taylor-swift/159260351` `--all-album` 自动选择歌手的所有专辑
-10. 新增[wrapper](https://github.com/zhaarey/wrapper/releases)模式 目前只能linux运行，解密速度超快，基本秒解
-11. `limit-max`支持限制长度 默认200
-12. 支持逐词与未同步歌词
+### Added Features
+1. Automatically invokes external MP4Box to encapsulate EC3 into M4A.
+2. Changes directory structure to `Artist Name\Album Name`; Atmos download files are moved to `AM-DL-Atmos downloads`, with the structure `Artist Name\Album Name [Atmos]`.
+3. Displays overall completion status after the operation.
+4. Automatically embeds cover art and LRC lyrics (requires media-user-token; see the final instructions for how to obtain it).
+5. Auto-build available at [Actions](https://github.com/zhaarey/apple-music-alac-atmos-downloader/actions). You can download the latest auto-build version and run directly using `main.exe url`.
+6. `main` supports `check`, which can accept text addresses or an API database.
+7. Added `get-m3u8-from-device`. Set this to true and configure the port `adb forward tcp:20020 tcp:20020` to fetch m3u8 from the emulator.
+8. Folder and file templates are supported.
+9. Supports downloading artist albums with `go run main.go https://music.apple.com/us/artist/taylor-swift/159260351` and `--all-album` to automatically select all albums by the artist.
+10. Added [wrapper](https://github.com/zhaarey/wrapper/releases) mode (currently only runs on Linux). The decryption speed is incredibly fast, almost instantaneous.
+11. `limit-max` supports length restrictions, defaulting to 200.
+12. Supports both word-by-word and unsynced lyrics.
 
-本项目仅支持ALAC和Atmos
+This project only supports ALAC and Atmos:
 - `alac (audio-alac-stereo)`
 - `ec3 (audio-atmos / audio-ec3)`
 
-### Python项目
-如需下载AAC推荐使用WorldObservationLog的[AppleMusicDecrypt](https://github.com/WorldObservationLog/AppleMusicDecrypt)
+### Python Project
+To download AAC, it is recommended to use WorldObservationLog's [AppleMusicDecrypt](https://github.com/WorldObservationLog/AppleMusicDecrypt).
 
-[AppleMusicDecrypt](https://github.com/WorldObservationLog/AppleMusicDecrypt)支持以下编码
+[AppleMusicDecrypt](https://github.com/WorldObservationLog/AppleMusicDecrypt) supports the following codecs:
 - `alac (audio-alac-stereo)`
 - `ec3 (audio-atmos / audio-ec3)`
 - `ac3 (audio-ac3)`
@@ -46,7 +46,7 @@ Original script by Sorrow. Modified by me to include some fixes and improvements
 9. Start downloading some playlists: `go run main.go https://music.apple.com/us/playlist/taylor-swift-essentials/pl.3950454ced8c45a3b0cc693c2a7db97b` or `go run main.go https://music.apple.com/us/playlist/hi-res-lossless-24-bit-192khz/pl.u-MDAWvpjt38370N`.
 10. For dolby atmos: `go run main.go --atmos https://music.apple.com/us/album/1989-taylors-version-deluxe/1713845538`.
 
-[中文教程-详见方法三](https://telegra.ph/Apple-Music-Alac高解析度无损音乐下载教程-04-02-2)
+[Chinese Tutorial](https://telegra.ph/Apple-Music-Alac高解析度无损音乐下载教程-04-02-2)
 
 ## Downloading lyrics
 1. Open [Apple Music](https://music.apple.com) and log in
